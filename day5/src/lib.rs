@@ -47,9 +47,7 @@ pub fn part1(mut reader: BufReader<File>) -> usize {
     let mut count = 0;
     loop {
         let mut id = String::new();
-        let Ok(_) = reader.read_line(&mut id) else {
-            break;
-        };
+        reader.read_line(&mut id).unwrap();
         let id = id.trim();
         if id.is_empty() {
             break;
