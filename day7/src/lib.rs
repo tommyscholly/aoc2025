@@ -42,49 +42,6 @@ pub fn part1(file: &str) -> usize {
     split
 }
 
-// fn quantum(row: usize, split: &mut usize, board: &Board, mut beam_board: Vec<Vec<bool>>) {
-//     if row == board.len() - 1 {
-//         return;
-//     }
-//
-//     let board_clone = beam_board.clone();
-//     let (current, next) = beam_board.split_at_mut(row + 1);
-//     let current_row = current.last().unwrap();
-//     let next_row = next.first_mut().unwrap();
-//
-//     for (col, beam) in current_row.iter().enumerate() {
-//         if *beam {
-//             if board[row + 1][col] == '^' {
-//                 let mut beam_board_left = board_clone.clone();
-//                 beam_board_left[row + 1][col - 1] = true;
-//                 let mut beam_board_right = board_clone.clone();
-//                 beam_board_right[row + 1][col + 1] = true;
-//
-//                 *split += 1;
-//                 quantum(row + 1, split, board, beam_board_left);
-//                 quantum(row + 1, split, board, beam_board_right);
-//             } else {
-//                 next_row[col] = true;
-//             }
-//         }
-//     }
-//
-//     quantum(row + 1, split, board, beam_board);
-// }
-//
-// pub fn part2(file: &str) -> usize {
-//     let board = parse_file(file);
-//     let beam_board: Vec<Vec<bool>> = board
-//         .iter()
-//         .map(|row| row.iter().map(|c| *c == 'S').collect())
-//         .collect();
-//
-//     let mut split = 1;
-//     quantum(0, &mut split, &board, beam_board);
-//
-//     split
-// }
-
 pub fn part2(file: &str) -> u64 {
     let board = parse_file(file);
     let mut beam_board: Vec<Vec<u64>> = board
